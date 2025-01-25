@@ -1,0 +1,41 @@
+services:
+  postgres:
+    container_name: postgres_microservice
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=vinycius
+      - POSTGRES_PASSWORD=vinycius
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  mongodb:
+    container_name: mongo_microservice
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=vinycius
+      - MONGO_INITDB_ROOT_PASSWORD=vinycius
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_volume:/data
+
+  mail-dev:
+    container_name: email_microservice
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+networks:
+  microservices-net:
+    driver: bridge
+   
+volumes:
+  postgres_volume:
+  mongodb_volume:
