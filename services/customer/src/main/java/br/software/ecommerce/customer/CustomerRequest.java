@@ -1,4 +1,4 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

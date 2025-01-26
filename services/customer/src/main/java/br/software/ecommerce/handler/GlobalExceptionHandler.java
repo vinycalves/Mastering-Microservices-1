@@ -1,6 +1,6 @@
-package br.software.ecomerce.handler;
+package br.software.ecommerce.handler;
 
-import br.software.ecomerce.exception.CustomerNotFoundException;
+import br.software.ecommerce.exception.CustomerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

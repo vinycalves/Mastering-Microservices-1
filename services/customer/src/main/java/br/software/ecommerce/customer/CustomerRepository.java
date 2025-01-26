@@ -1,4 +1,4 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

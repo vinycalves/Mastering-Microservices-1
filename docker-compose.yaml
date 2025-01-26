@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres_volume:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     networks:
       - microservices-net
     restart: unless-stopped
@@ -21,7 +21,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=vinycius
       - MONGO_INITDB_ROOT_PASSWORD=vinycius
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - mongodb_volume:/data
 
@@ -29,8 +29,8 @@ services:
     container_name: email_microservice
     image: maildev/maildev
     ports:
-      - 1080:1080
-      - 1025:1025
+      - "1080:1080"
+      - "1025:1025"
 
 networks:
   microservices-net:

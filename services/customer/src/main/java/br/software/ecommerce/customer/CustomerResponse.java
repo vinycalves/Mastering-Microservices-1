@@ -1,4 +1,4 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
 public record CustomerResponse(
         String id,

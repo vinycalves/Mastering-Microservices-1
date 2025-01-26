@@ -1,6 +1,6 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
-import br.software.ecomerce.exception.CustomerNotFoundException;
+import br.software.ecommerce.exception.CustomerNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ import static java.lang.String.format;
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
-    private CustomerRepository customerRepository;
-    private CustomerMapper customerMapper;
+    private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
 
     public String createCustomer(CustomerRequest request) {
         var customer = customerRepository.save(customerMapper.toCustomer(request));

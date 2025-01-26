@@ -1,7 +1,6 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
 
 @NoArgsConstructor

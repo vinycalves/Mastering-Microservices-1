@@ -1,4 +1,4 @@
-package br.software.ecomerce.customer;
+package br.software.ecommerce.customer;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,17 +34,17 @@ public class CostumerController {
     }
 
     @GetMapping("/exist/{customer-id}")
-    public ResponseEntity<Boolean> existsById(@PathVariable String customerId) {
+    public ResponseEntity<Boolean> existsById(@PathVariable("customer-id") String customerId) {
         return ResponseEntity.ok(customerService.existById(customerId));
     }
 
     @GetMapping("/{customer-id}")
-    public ResponseEntity<CustomerResponse> findById(@PathVariable String customerId) {
+    public ResponseEntity<CustomerResponse> findById(@PathVariable("customer-id") String customerId) {
         return ResponseEntity.ok(customerService.findById(customerId));
     }
 
     @DeleteMapping("/{customer-id}")
-    public ResponseEntity<Void> deleteById(@PathVariable String customerId) {
+    public ResponseEntity<Void> deleteById(@PathVariable("customer-id") String customerId) {
         customerService.deleteCustomer(customerId);
         return ResponseEntity.accepted().build();
     }
