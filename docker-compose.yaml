@@ -1,15 +1,32 @@
 services:
-  postgres:
-    container_name: postgres_microservice
+  postgres_product:
+    container_name: postgres_microservice_product
     image: postgres:latest
     environment:
       - POSTGRES_USER=vinycius
       - POSTGRES_PASSWORD=vinycius
+      - POSTGRES_DB=productsP
       - PGDATA=/var/lib/postgresql/data
     volumes:
-      - postgres_volume:/var/lib/postgresql/data
+      - postgres_volume_product:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  postgres_order:
+    container_name: postgres_microservice_order
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=vinycius
+      - POSTGRES_PASSWORD=vinycius
+      - POSTGRES_DB=orders
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - postgres_volume_order:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
     networks:
       - microservices-net
     restart: unless-stopped
@@ -37,5 +54,6 @@ networks:
     driver: bridge
    
 volumes:
-  postgres_volume:
+  postgres_volume_product:
+  postgres_volume_order:
   mongodb_volume:
